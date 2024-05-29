@@ -26,10 +26,7 @@ pub async fn subscribe(form: web::Form<FormData>, pool: web::Data<PgPool>) -> Ht
         Ok(email) => email,
         Err(_) => return HttpResponse::BadRequest().finish(),
     };
-    let new_subscriber = NewSubscriber {
-        email,
-        name,
-    };
+    let new_subscriber = NewSubscriber { email, name };
     match insert_subscriber(&pool, &new_subscriber).await {
         Ok(_) => HttpResponse::Ok().finish(),
         Err(_) => HttpResponse::InternalServerError().finish(),
