@@ -7,7 +7,7 @@ use sqlx::PgPool;
 use std::net::TcpListener;
 use tracing_actix_web::TracingLogger;
 
-use crate::routes::{health_check, subscribe, confirm};
+use crate::routes::{confirm, health_check, subscribe};
 
 pub struct Application {
     port: u16,
@@ -35,7 +35,12 @@ impl Application {
         );
         let listener = TcpListener::bind(address)?;
         let port = listener.local_addr().unwrap().port();
-        let server = run(listener, connection_pool, email_client, configuration.application.base_url)?;
+        let server = run(
+            listener,
+            connection_pool,
+            email_client,
+            configuration.application.base_url,
+        )?;
 
         Ok(Self { port, server })
     }
