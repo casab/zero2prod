@@ -17,7 +17,7 @@ pub struct Application {
     server: Server,
 }
 
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct HmacSecret(pub Secret<String>);
 
 impl Application {

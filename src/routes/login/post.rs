@@ -2,10 +2,8 @@ use crate::authentication::{validate_credentials, AuthError, Credentials};
 
 use crate::routes::error_chain_fmt;
 use crate::startup::HmacSecret;
-use actix_web::body::BoxBody;
 use actix_web::error::InternalError;
 use actix_web::http::header::LOCATION;
-use actix_web::http::StatusCode;
 use actix_web::web;
 use actix_web::HttpResponse;
 use hmac::{Hmac, Mac};
