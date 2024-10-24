@@ -27,7 +27,7 @@ tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
 # unnecessary dependencies for projects that do not need it.
 serde = { version = "1", features = ["derive"] }
 serde-aux = "4"
-config = "0.14"
+config = "0.14.1"
 uuid = { version = "1", features = ["v4", "serde"] }
 chrono = { version = "0.4.22", default-features = false, features = ["clock"] }
 tracing = { version = "0.1", features = ["log"] }
